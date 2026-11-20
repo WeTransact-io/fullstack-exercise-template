@@ -14,12 +14,19 @@ Create your own repository from this template ("Use this template"), do the exer
 
 The tenant comes from the `X-Tenant-Id` header, standing in for real sign-in. The frontend's `apiFetch` sends the demo tenant for you.
 
+## Before you run anything
+
+You shouldn't have to trust us blindly. Read this repository first; it takes about five minutes.
+- It contains only the files in the table above: no binaries and no install or build scripts.
+- No package in `frontend/package-lock.json` runs an install script, and the commands below install with `--ignore-scripts` anyway.
+- **You don't need to run it on your machine:** open it in a GitHub Codespace ("Code" → "Codespaces"), which has .NET and Node ready.
+
 ## Run it
 
 ```bash
 cd backend && dotnet test
-cd backend/Api && dotnet run          # http://localhost:5163
-cd frontend && npm ci && npm run dev  # proxies /api to the backend
+cd backend/Api && dotnet run                            # http://localhost:5163
+cd frontend && npm ci --ignore-scripts && npm run dev   # proxies /api to the backend
 cd frontend && npm test
 ```
 
